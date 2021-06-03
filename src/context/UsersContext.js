@@ -16,13 +16,17 @@ function UsersContextProvider (props) {
 
   function _deleteUser (userID) {
     setUsers(users.filter(user => user.id !== userID));
-    console.log(users);
+  }
+
+  function _createUser (userInfo) {
+    setUsers([...users, userInfo]);
   }
 
   return (
     <Provider value={{
       users,
-      deleteUser: _deleteUser
+      deleteUser: _deleteUser,
+      createUser: _createUser
     }}>
       {props.children}
     </Provider>

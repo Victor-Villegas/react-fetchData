@@ -134,7 +134,37 @@ p {
     bottom: 15px;
 }
 
+form {
+    margin: 20px;
+    font-size: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.notification p {
+    padding: 20px;
+    position: absolute;
+    top: 120px;
+    left: 0;
+}
+
 /* LIGHT THEME */
+.light-notification p {
+    background-color: var(--orangePeel);
+    color: black;
+}
+
 .light-App {
     background-color: var(--cultured);
     color: var(--raisinBlack);
@@ -165,6 +195,11 @@ p {
 }
 
 /* DARK THEME */
+.dark-notification p {
+    background-color: var(--caribbeanGreen);
+    color: white;
+}
+
 .dark-App {
     background-color: var(--charcoal);
     color: var(--cultured);

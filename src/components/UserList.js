@@ -2,6 +2,7 @@ import { UsersContextConsumer } from '../context/UsersContext';
 import { ThemeContextConsumer } from '../context/ThemeContext';
 import UserCard from './UserCard';
 import { LogInContextConsumer } from '../context/LogInContext';
+import AddUser from './AddUser';
 
 function UserList () {
   return (
@@ -9,15 +10,18 @@ function UserList () {
       <ThemeContextConsumer>
         {({ theme }) => (
           <UsersContextConsumer>
-            {({ users, deleteUser }) => (
+            {({ users, deleteUser, createUser }) => (
               <LogInContextConsumer>
                 {({ isLoggedIn }) => (
-                  <div className={'userList'}>
-                    {users.map(user => (
-                      <UserCard key={user.id} user={user} theme={theme} isLoggedIn={isLoggedIn}
-                                btnFunction={deleteUser}/>
-                    ))}
-                  </div>
+                  <>
+                    {isLoggedIn ? <AddUser theme={theme} users={users} function={createUser}/> : null}
+                    <div className={'userList'}>
+                      {users.map(user => (
+                        <UserCard key={user.id} user={user} theme={theme} isLoggedIn={isLoggedIn}
+                                  btnFunction={deleteUser}/>
+                      ))}
+                    </div>
+                  </>
                 )}
               </LogInContextConsumer>
             )}
